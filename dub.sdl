@@ -1,0 +1,17 @@
+name "bloomberg_dl"
+dependency "libssh-d" version="~>0.7.3-4"
+
+license "Apache 2.0"
+description "D library for Bloomberg Data License API"
+copyright "Copyright © 2021, David AU @ Symmetry Investment"
+libs "libssh"
+
+
+configuration "library" {
+	targetType "library"
+}
+configuration "tools" {
+	targetType "executable"
+	mainSourceFile "tools/tools.d"
+	targetName "bloomberg_dl_tools"
+}
