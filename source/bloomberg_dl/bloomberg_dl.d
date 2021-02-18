@@ -22,7 +22,7 @@ else
 class bloomberg_dl
 {
 private:
-	static string fileTemplate = 
+	static immutable string fileTemplate = 
 "START-OF-FILE
 FIRMNAME=USER_XXX
 COMPRESS=yes
@@ -39,15 +39,15 @@ END-OF-DATA
 END-OF-FILE";
 	version(Windows)
 	{
-		static string new_line = "\r\n";
-		static string start_split = "START-OF-DATA\r\n";
-		static string end_split = "\r\nEND-OF-DATA";
+		static immutable string new_line = "\r\n";
+		static immutable string start_split = "START-OF-DATA\r\n";
+		static immutable string end_split = "\r\nEND-OF-DATA";
 	}
 	else
 	{
-		static string new_line = "\n";
-		static string start_split = "START-OF-DATA\n";
-		static string end_split = "\nEND-OF-DATA";
+		static immutable string new_line = "\n";
+		static immutable string start_split = "START-OF-DATA\n";
+		static immutable string end_split = "\nEND-OF-DATA";
 	}
 private:
 	static string getFileName(string prefix)
