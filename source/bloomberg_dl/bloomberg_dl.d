@@ -39,15 +39,15 @@ END-OF-DATA
 END-OF-FILE";
 	version(Windows)
 	{
-		static string new_line = "\n";
-		static string start_split = "START-OF-DATA\n";
-		static string end_split = "\nEND-OF-DATA";
-	}
-	else
-	{
 		static string new_line = "\r\n";
 		static string start_split = "START-OF-DATA\r\n";
 		static string end_split = "\r\nEND-OF-DATA";
+	}
+	else
+	{
+		static string new_line = "\n";
+		static string start_split = "START-OF-DATA\n";
+		static string end_split = "\nEND-OF-DATA";
 	}
 private:
 	static string getFileName(string prefix)
