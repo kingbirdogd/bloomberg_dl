@@ -1,0 +1,4 @@
+bloomberg_dl_soap/build/*
+libbloomberg_dl.a
+.dub/
+.dub/*
