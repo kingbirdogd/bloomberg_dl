@@ -1,5 +1,6 @@
 #include "PerSecurityWSBinding.nsmap"
 #include "bloomberg_dl_client.h"
+#include <cstring>
 #ifndef _WIN32
 #include <unistd.h>
 #else
@@ -12,14 +13,14 @@ const static int Success = 0;
 const static int RequestError = 200;
 const static int PollInterval = 30000;
 
-inline xsd__date toDate(unsigned long long dt)
+inline xsd__date toDate(long dt)
 {
 	xsd__date date = "";
-	unsigned long long day = dt % 100;
+	long day = dt % 100;
 	dt /= 100;
-	unsigned long long month = dt % 100;
+	long month = dt % 100;
 	dt /= 100;
-	unsigned long long year = dt;
+	long year = dt;
 	date += std::to_string(year);
 	date += "-";
 	if (month < 10)
@@ -53,8 +54,8 @@ std::vector<std::vector<std::string>> soapGetData
 	const std::vector<std::string>& fields, 
 	const std::vector<std::string>& ident,
 	bool withHeader,  
-	unsigned long long interval, 
-	unsigned long long retry
+	long interval, 
+	long retry
 )
 {
 	client_init();
@@ -107,7 +108,7 @@ std::vector<std::vector<std::string>> soapGetData
 	RetrieveGetDataRequest rtrvGtDrReq;
 	rtrvGtDrReq.responseId = sbmtGtDtResp.responseId;
 	RetrieveGetDataResponse rtrvGtDrResp;
-	for(unsigned long long i = 0; i < retry; ++i)
+	for(long i = 0; i < retry; ++i)
 	{
 		sleep(static_cast<int>(interval));
 		if (ps.retrieveGetDataResponse(&rtrvGtDrReq, rtrvGtDrResp))
@@ -153,11 +154,11 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	const std::vector<std::string>& fields, 
 	const std::vector<std::string>& ident,
 	const std::string& source, 
-	unsigned long long startDate, 
-	unsigned long long endDate,
+	long startDate, 
+	long endDate,
 	bool withHeader,  
-	unsigned long long interval, 
-	unsigned long long retry
+	long interval, 
+	long retry
 )
 {
 	client_init();
@@ -222,7 +223,7 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	RetrieveGetHistoryRequest rtrvGtHistRespReq;
 	RetrieveGetHistoryResponse rtrvGtHistResp;
 	rtrvGtHistRespReq.responseId = sbmtGtHisRsp.responseId;
-	for(unsigned long long i = 0; i < retry; ++i)
+	for(long i = 0; i < retry; ++i)
 	{
 		::sleep(static_cast<int>(interval));
 		if (ps.retrieveGetHistoryResponse(&rtrvGtHistRespReq, rtrvGtHistResp))
@@ -266,4 +267,79 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	
 	return result;
 }
+
+inline std::vector<string> toStrVec(char const** strings)
+{
+	std::vector<string> result;
+	for (std::size_t i = 0; strings[i] != nullptr; ++i)
+	{
+		result.push_back(strings[i]);
+	}
+}
+
+inline char const*** toTalbe(const std::vector<std::vector<std::string>>& talbe)
+{
+	char*** result = new char**[table.size() + 1];
+	result[table.size()] = nullptr;
+	for (std::size_t i = 0; i < table.size(); ++i)
+	{
+		result[i] = new char*[table[i].size() + 1];
+		result[i][table[i].size()] = nullptr;
+		for (std::size_t j = 0; j < table[i].size(); ++j)
+		{
+			result[i][j] = new char[table[i][j].length() + 1];
+			std::memcpy(result[i][j], table[i][j], table[i][j].length() + 1);
+		}
+	}
+	return result;
+}
+
+void releaseTalbe(char const*** table)
+{
+	for (std::size_t i = 0; table[i] != nullptr; ++i)
+	{
+		for (std;:size_t j = 0; tablep[i][j] != nullptr; ++j)
+		{
+			delete[] table[i][j];
+		}
+		delete[] table[i];
+	}
+	delete[] table;
+}
+
+char const*** soapGetData
+(
+        char const* host,
+        char const* cert,
+        char const* pass,
+        char const** fields,
+        char const** ident,
+        bool withHeader,
+        long interval,
+        long retry
+)
+{
+	return toTable(soapGetData(host, cert, pass, toStrVec(fields, toStrVec(ident), withHeader, interval, retry)));
+}
+
+char const*** soapGetHistorical
+(
+        char const* host,
+        char const* cert,
+        char const* pass,
+        char const** fields,
+        char const** ident,
+        char const* source,
+        long startDate,
+        long endDate,
+        bool withHeader,
+        long interval,
+        long retry
+)
+{
+	return toTable(soapGetHistorical(host, cert, pass, toStrVec(fields, toStrVec(ident), source, startDate, endDate, withHeader, interval, retry))
+}
+
+
+
 

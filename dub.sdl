@@ -6,7 +6,7 @@ license "Apache 2.0"
 description "D library for Bloomberg Data License API"
 copyright "Copyright © 2021, David AU @ Symmetry Investment"
 lflags "-Lbloomberg_dl_soap/build"
-libs "bloomberg_dl_soap" "libssh"
+libs "stdc++" "bloomberg_dl_soap" "libssh"
 
 
 configuration "library" {

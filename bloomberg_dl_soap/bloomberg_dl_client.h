@@ -36,8 +36,8 @@ std::vector<std::vector<std::string>> soapGetData
         const std::vector<std::string>& fields,
         const std::vector<std::string>& ident,
         bool withHeader = true,
-        unsigned long long interval = 10,
-        unsigned long long retry = 100
+        long interval = 10,
+        long retry = 100
 );
 
 std::vector<std::vector<std::string>> soapGetHistorical
@@ -48,11 +48,40 @@ std::vector<std::vector<std::string>> soapGetHistorical
         const std::vector<std::string>& fields,
         const std::vector<std::string>& ident,
         const std::string& source,
-        unsigned long long startDate,
-        unsigned long long endDate,
+        long startDate,
+        long endDate,
         bool withHeader = true,
-        unsigned long long interval = 10,
-        unsigned long long retry = 100
+        long interval = 10,
+        long retry = 100
+);
+
+void releaseTalbe(char const*** table);
+
+char const*** soapGetData
+(
+        char const* host,
+        char const* cert,
+        char const* pass,
+        char const** fields,
+        char const** ident,
+        bool withHeader = true,
+        long interval = 10,
+        long retry = 100
+);
+
+char const*** soapGetHistorical
+(
+        char const* host,
+        char const* cert,
+        char const* pass,
+        char const** fields,
+        char const** ident,
+        char const* source,
+        long startDate,
+        long endDate,
+        bool withHeader = true,
+        long interval = 10,
+        long retry = 100
 );
 
 

@@ -9,6 +9,7 @@ import std.datetime : UTC;
 import std.zlib;
 import std.algorithm;
 import std.file;
+import std.string : toStringz, fromStringz;
 version(Windows)
 {
 	import core.stdc.stdio;
@@ -18,6 +19,77 @@ else
 	import core.sys.posix.fcntl;
 }
 
+
+extern (C++)
+void releaseTalbe(const (char)*** table);
+
+extern (C++)
+const (char)*** soapGetData
+(
+        const (char)* host,
+        const (char)* cert,
+        const (char)* pass,
+        const (char)** fields,
+        const (char)** ident,
+        bool withHeader,
+        long interval,
+        long retry
+);
+
+extern (C++)
+const (char)*** soapGetHistorical
+(
+        const (char)* host,
+        const (char)* cert,
+        const (char)* pass,
+        const (char)** fields,
+        const (char)** ident,
+        const (char)* source,
+        long startDate,
+        long endDate,
+        bool withHeader,
+        long interval,
+        long retry
+);
+
+const (char)** toStrings(ref string[] strs)
+{
+	const (char)* [] lines;
+	const (char)** result;
+	lines.length = strs.length + 1;
+	for (ulong i = 0; i < strs.length; ++i)
+	{
+		lines[i] = toStringz(strs[i]);
+	}
+	lines[strs.length] = null;
+	result = lines.ptr;
+	return result;
+}
+
+string[][] converTalbe(const (char)*** table)
+{
+	import std.conv;
+	string[][] result;
+	for (ulong i = 0; table[i] != null; ++i)
+	{
+		for (ulong j = 0; table[i][j] != null; ++j)
+		{
+			result[i][j] = to!string(fromStringz(table[j][j]));
+		}
+	}
+	releaseTalbe(table);
+	return result;
+}
+
+string[][] soapGetData(string host, string cert, string pass, string[] fields, string[] idents, bool withHeader,  long interval, long retry)
+{
+	return converTalbe(soapGetData(toStringz(host), toStringz(cert), toStringz(pass), toStrings(fields), toStrings(idents), withHeader, interval, retry));
+}
+
+string[][] soapGetHistorical(string host, string cert, string pass, string[] fields, string[] idents, string source, long startDate, long endDate, bool withHeader, long interval, long retry)
+{
+	return converTalbe(soapGetHistorical(toStringz(host), toStringz(cert), toStringz(pass), toStrings(fields), toStrings(idents), toStringz(source), startDate, endDate, withHeader, interval, retry));
+}
 
 class bloomberg_dl
 {
