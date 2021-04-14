@@ -352,6 +352,11 @@ private:
 public:
 	static string[][] getData(string host, string user, string pass, string[] fields, string[] idents, bool withHeader = true,  long interval = 10, long retry = 100)
 	{
+		import std.string;
+		if (host == "" || 0 == indexOf(host, "http"))
+		{
+			return soapGetData(host, user, pass, fields, idents, withHeader, interval, retry);
+		}
 		string[][] result;
 		if (withHeader)
 		{
@@ -385,6 +390,11 @@ public:
 	}
 	static string[][] getHistorical(string host, string user, string pass, string[] fields, string[] idents, string source, long startDate, long endDate, bool withHeader = true,  long interval = 10, long retry = 100)
 	{
+		import std.string;
+		if (host == "" || 0 == indexOf(host, "http"))
+		{
+			return soapGetHistorical(host, user, pass, fields, idents, source, startDate, endDate, withHeader, interval, retry);
+		}
 		string[][] result;
 		if (withHeader)
 		{
