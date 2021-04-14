@@ -84,5 +84,4 @@ char const*** soapGetHistorical
         long retry = 100
 );
 
-
 #endif //__BLOOMBREG_DL_CLIENT__

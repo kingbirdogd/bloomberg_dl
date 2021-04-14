@@ -268,27 +268,28 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	return result;
 }
 
-inline std::vector<string> toStrVec(char const** strings)
+inline std::vector<std::string> toStrVec(char const** strings)
 {
-	std::vector<string> result;
+	std::vector<std::string> result;
 	for (std::size_t i = 0; strings[i] != nullptr; ++i)
 	{
 		result.push_back(strings[i]);
 	}
 }
 
-inline char const*** toTalbe(const std::vector<std::vector<std::string>>& talbe)
+inline char const*** toTable(const std::vector<std::vector<std::string>>& table)
 {
-	char*** result = new char**[table.size() + 1];
+	const char*** result = new const char**[table.size() + 1];
 	result[table.size()] = nullptr;
 	for (std::size_t i = 0; i < table.size(); ++i)
 	{
-		result[i] = new char*[table[i].size() + 1];
+		result[i] = new const char*[table[i].size() + 1];
 		result[i][table[i].size()] = nullptr;
 		for (std::size_t j = 0; j < table[i].size(); ++j)
 		{
-			result[i][j] = new char[table[i][j].length() + 1];
-			std::memcpy(result[i][j], table[i][j], table[i][j].length() + 1);
+			auto ptr = new char[table[i][j].length() + 1];
+			std::memcpy(ptr, table[i][j].c_str(), table[i][j].length() + 1);
+			result[i][j] = ptr;
 		}
 	}
 	return result;
@@ -298,7 +299,7 @@ void releaseTalbe(char const*** table)
 {
 	for (std::size_t i = 0; table[i] != nullptr; ++i)
 	{
-		for (std;:size_t j = 0; tablep[i][j] != nullptr; ++j)
+		for (std::size_t j = 0; table[i][j] != nullptr; ++j)
 		{
 			delete[] table[i][j];
 		}
@@ -319,7 +320,7 @@ char const*** soapGetData
         long retry
 )
 {
-	return toTable(soapGetData(host, cert, pass, toStrVec(fields, toStrVec(ident), withHeader, interval, retry)));
+	return toTable(soapGetData(host, cert, pass, toStrVec(fields), toStrVec(ident), withHeader, interval, retry));
 }
 
 char const*** soapGetHistorical
@@ -337,8 +338,9 @@ char const*** soapGetHistorical
         long retry
 )
 {
-	return toTable(soapGetHistorical(host, cert, pass, toStrVec(fields, toStrVec(ident), source, startDate, endDate, withHeader, interval, retry))
+	return toTable(soapGetHistorical(host, cert, pass, toStrVec(fields), toStrVec(ident), source, startDate, endDate, withHeader, interval, retry));
 }
+
 
 
 

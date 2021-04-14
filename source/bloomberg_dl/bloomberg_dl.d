@@ -52,6 +52,7 @@ const (char)*** soapGetHistorical
         long retry
 );
 
+
 const (char)** toStrings(ref string[] strs)
 {
 	const (char)* [] lines;
