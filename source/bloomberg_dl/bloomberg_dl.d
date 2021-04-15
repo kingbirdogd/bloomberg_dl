@@ -73,10 +73,12 @@ string[][] converTalbe(const (char)*** table)
 	string[][] result;
 	for (ulong i = 0; table[i] != null; ++i)
 	{
+		string[] line;
 		for (ulong j = 0; table[i][j] != null; ++j)
 		{
-			result[i][j] = to!string(fromStringz(table[i][j]));
+			line ~= to!string(fromStringz(table[i][j]));
 		}
+		result ~= line;
 	}
 	releaseTalbe(table);
 	return result;
