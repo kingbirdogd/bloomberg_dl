@@ -18,9 +18,10 @@ dub build -c tools
 ###
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 withHeader -- Whether the result first line has header
 interval -- Check SFTP server interval in seconds
@@ -33,9 +34,10 @@ static string[][] getData(string host, string user, string pass, string[] fields
 ###
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 withHeader -- Whether the result first line has header
 interval -- Check SFTP server interval in seconds
@@ -48,9 +50,10 @@ static string getDataCsv(string host, string user, string pass, string[] fields,
 ###
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 path -- file save path
 level -- gzip level, 0-9, input 0 will not zip, 1-9 will zip the file to path.gz
@@ -66,9 +69,10 @@ static void downloadData(string host, string user, string pass, string[] fields,
 ###
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 source -- Historical data source, BGN as an example
 startDate -- Historical data start date
@@ -83,9 +87,10 @@ static string[][] getHistorical(string host, string user, string pass, string[] 
 
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 source -- Historical data source, BGN as an example
 startDate -- Historical data start date
@@ -100,9 +105,10 @@ static string[][] getHistoricalCsv(string host, string user, string pass, string
 
 ```
 *********************************************************************************
-host -- Bloomberg Host
-user -- UserName
-pass -- Password
+host -- Bloomberg Host(SFTP) / ""(WebService Soap)
+user -- UserName(SFTP) / p12_certificate_path(WebService Soap)
+pass -- Password(SFTP) / p12_certificate_password(WebService Soap) 
+fields -- Request fields
 idents -- BBGIDs
 source -- Historical data source, BGN as an example
 startDate -- Historical data start date
@@ -118,7 +124,13 @@ static void downloadHistorical(string host, string user, string pass, string[] f
 ```
 
 # Example
+
+#SFTP example
 run example ./example.sh <host> <user> <pass>
+
+#SOAP example
+run example ./example.sh "" <p12_certificate_file> <p12_certificate_file_password>
+
 
 refer tools/tools.d to learn how to use the API
 
