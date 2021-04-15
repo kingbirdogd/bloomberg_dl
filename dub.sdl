@@ -3,6 +3,7 @@ dependency "libssh-d" version="~>0.7.3-4"
 preGenerateCommands "bloomberg_dl_soap/build_debug.sh" build="debug"
 preGenerateCommands "bloomberg_dl_soap/build.sh" build="release"
 
+
 license "Apache 2.0"
 description "D library for Bloomberg Data License API"
 copyright "Copyright © 2021, David AU @ Symmetry Investment"
@@ -13,6 +14,8 @@ libs "stdc++" "bloomberg_dl_soap" "libssh" "ssl" "crypto"
 
 configuration "library" {
 	targetType "library"
+	copyFiles "bloomberg_dl_soap/build_debug/libbloomberg_dl_soap.a" build="debug"
+	copyFiles "bloomberg_dl_soap/build/libbloomberg_dl_soap.a" build="release"
 }
 configuration "tools" {
 	targetType "executable"
