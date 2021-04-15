@@ -279,6 +279,7 @@ inline std::vector<std::string> toStrVec(char const** strings)
 	{
 		result.push_back(strings[i]);
 	}
+	return result;
 }
 
 inline char const*** toTable(const std::vector<std::vector<std::string>>& table)
