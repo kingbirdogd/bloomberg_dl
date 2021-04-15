@@ -7,6 +7,7 @@ set(SOURCE_FILES bloomberg_dl_client.cpp soapC.cpp soapPerSecurityWSBindingProxy
 set(TARGET_FILES bloomberg_dl_test.cpp bloomberg_dl_client.h)
 find_package(OpenSSL REQUIRED)
 add_library(bloomberg_dl_soap STATIC ${SOURCE_FILES})
+set_property(TARGET bloomberg_dl_soap  PROPERTY POSITION_INDEPENDENT_CODE ON)
 add_executable(bloomberg_dl_soap_test ${TARGET_FILES})
 target_link_libraries(bloomberg_dl_soap_test bloomberg_dl_soap)
 target_link_libraries(bloomberg_dl_soap_test OpenSSL::Crypto)
