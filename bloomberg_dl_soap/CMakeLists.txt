@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(bloomberg_dl_soap)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -DWITH_OPENSSL")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -DWITH_OPENSSL -DHAVE_PKCS12_SUPPORT")
 
 set(SOURCE_FILES bloomberg_dl_client.cpp soapC.cpp soapPerSecurityWSBindingProxy.cpp stdsoap2.cpp bloomberg_dl_client.h PerSecurityWSBinding.nsmap soapH.h soapPerSecurityWSBindingProxy.h  soapStub.h stdsoap2.h)
 set(TARGET_FILES bloomberg_dl_test.cpp bloomberg_dl_client.h)

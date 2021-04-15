@@ -906,6 +906,12 @@ extern intmax_t __strtoull(const char*, char**, int);
 # include <openssl/dh.h>
 # include <openssl/asn1.h>
 # include <openssl/x509v3.h>
+#ifdef HAVE_PKCS12_SUPPORT
+#include <openssl/pkcs12.h>
+#ifndef SSL_FILETYPE_PKCS12
+#define SSL_FILETYPE_PKCS12 43
+#endif //SSL_FILETYPE_PKCS12
+#endif //HAVE_PKCS12_SUPPORT
 # ifndef ALLOW_OLD_VERSIONS
 #  if (OPENSSL_VERSION_NUMBER < 0x00905100L)
 #   error "Must use OpenSSL 0.9.6 or later"

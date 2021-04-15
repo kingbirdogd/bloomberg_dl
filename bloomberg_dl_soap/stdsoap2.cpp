@@ -63,6 +63,9 @@ A commercial use license is available from Genivia, Inc., contact@genivia.com
 #endif
 
 #include "stdsoap2.h"
+#include <algorithm>
+#include <cctype>
+#include <string>
 
 #if GSOAP_VERSION != GSOAP_LIB_VERSION
 # error "GSOAP VERSION MISMATCH IN LIBRARY: PLEASE REINSTALL PACKAGE"
@@ -4289,6 +4292,28 @@ ssl_send(int sk, void *s, int n, char *user)
 /******************************************************************************/
 
 #if defined(WITH_OPENSSL) || defined(WITH_GNUTLS) || defined(WITH_SYSTEMSSL)
+
+inline int SSL_file_type(const char* file)
+{
+	std::string path = file;
+	auto pos = path.find(".");
+	if (std::string::npos == pos)
+		return -1;
+	auto subfix = path.substr(pos + 1);
+	std::transform(subfix.begin(), subfix.end(), subfix.begin(),
+		[](char c){ return std::tolower(c);});
+	if (subfix == "pem")
+		return SSL_FILETYPE_PEM;
+	else if (subfix == "asn1")
+		return SSL_FILETYPE_ASN1;
+#ifdef HAVE_PKCS12_SUPPORT
+	else if (subfix == "p12")
+		return SSL_FILETYPE_PKCS12;
+#endif //HAVE_PKCS12_SUPPORT
+	else
+		return -1;
+}
+
 static int
 ssl_auth_init(struct soap *soap)
 {
@@ -4346,17 +4371,57 @@ ssl_auth_init(struct soap *soap)
 #if 1
   if (soap->keyfile)
   {
-    if (!SSL_CTX_use_certificate_chain_file(soap->ctx, soap->keyfile))
-      return soap_set_receiver_error(soap, "SSL/TLS error", "Can't find or read certificate in private key PEM file", SOAP_SSL_ERROR);
-    if (soap->password)
+    auto file_type = SSL_file_type(soap->keyfile);
+    switch(file_type)
     {
-      SSL_CTX_set_default_passwd_cb_userdata(soap->ctx, (void*)soap->password);
-      SSL_CTX_set_default_passwd_cb(soap->ctx, ssl_password);
-    }
+        case SSL_FILETYPE_PEM:
+        case SSL_FILETYPE_ASN1:
+        {
+            if (!SSL_CTX_use_PrivateKey_file(soap->ctx, soap->keyfile, file_type))
+              return soap_set_receiver_error(soap, "SSL/TLS error", "Can't find or read certificate in private key PEM file", SOAP_SSL_ERROR);
+            if (soap->password)
+            {
+              SSL_CTX_set_default_passwd_cb_userdata(soap->ctx, (void*)soap->password);
+              SSL_CTX_set_default_passwd_cb(soap->ctx, ssl_password);
+            }
 #ifndef WM_SECURE_KEY_STORAGE
-    if (!SSL_CTX_use_PrivateKey_file(soap->ctx, soap->keyfile, SSL_FILETYPE_PEM))
-      return soap_set_receiver_error(soap, "SSL/TLS error", "Can't read private key PEM file", SOAP_SSL_ERROR);
+            if (!SSL_CTX_use_PrivateKey_file(soap->ctx, soap->keyfile, SSL_FILETYPE_PEM))
+              return soap_set_receiver_error(soap, "SSL/TLS error", "Can't read private key PEM file", SOAP_SSL_ERROR);
 #endif
+        }
+#ifdef HAVE_PKCS12_SUPPORT
+        case SSL_FILETYPE_PKCS12:
+        {
+            if (!soap->password)
+              return soap_set_receiver_error(soap, "SSL/TLS error", "pkcs12 file must has password", SOAP_SSL_ERROR);
+            FILE *f;
+            PKCS12 *p12;
+            EVP_PKEY *pri;
+            f = fopen(soap->keyfile,"rb");
+            if (!f)
+                return soap_set_receiver_error(soap, "SSL/TLS error", "pkcs12 keyfile open fail", SOAP_SSL_ERROR);
+            p12 = d2i_PKCS12_fp(f, NULL);
+            fclose(f);
+            PKCS12_PBE_add();
+            X509 *x509;
+            if (!PKCS12_parse(p12, soap->password, &pri, &x509, NULL))
+                return soap_set_receiver_error(soap, "SSL/TLS error", "pkcs12 keyfile parse fail", SOAP_SSL_ERROR);
+            PKCS12_free(p12);
+            if(SSL_CTX_use_certificate(soap->ctx, x509) != 1)
+                return soap_set_receiver_error(soap, "SSL/TLS error", "pkcs12 keyfile use certificate fail", SOAP_SSL_ERROR);
+            SSL_CTX_set_default_passwd_cb_userdata(soap->ctx, (void*)soap->password);
+            SSL_CTX_set_default_passwd_cb(soap->ctx, ssl_password);
+            if(SSL_CTX_use_PrivateKey(soap->ctx, pri) != 1)
+                return soap_set_receiver_error(soap, "SSL/TLS error", "pkcs12 keyfile use PrivateKey fail", SOAP_SSL_ERROR);
+
+            break;
+        }
+#endif //HAVE_PKCS12_SUPPORT
+        default:
+        {
+            return soap_set_receiver_error(soap, "SSL/TLS error", "keyfile type not support", SOAP_SSL_ERROR);
+        }
+    }
   }
 #else
 /* Suggested alternative approach to check the key file for cert only when cafile==NULL */

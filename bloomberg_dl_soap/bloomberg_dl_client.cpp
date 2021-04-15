@@ -46,6 +46,26 @@ static void client_init()
 	return;
 }
 
+inline bool setCert
+(
+	PerSecurityWSBindingProxy& ps,
+	const std::string& cert,
+	const std::string& pass
+)
+{
+	if (soap_ssl_client_context(ps.soap, 
+  		SOAP_SSL_DEFAULT, 
+		cert.c_str(),  
+		pass.c_str(),     
+		NULL,       
+		NULL,           
+		NULL 
+	)) 
+		return false;
+	else
+		return true;
+}
+
 std::vector<std::vector<std::string>> soapGetData
 (	
 	const std::string& host,
@@ -65,17 +85,8 @@ std::vector<std::vector<std::string>> soapGetData
 	{
 		ps = PerSecurityWSBindingProxy(host.c_str());
 	}
-	if (soap_ssl_client_context(ps.soap, 
-  		SOAP_SSL_DEFAULT, 
-		cert.c_str(),  
-		pass.c_str(),     
-		NULL,       
-		NULL,           
-		NULL 
-	)) 
-	{
+	if (!setCert(ps, cert, pass))
 		return result;
-	} 
 	GetDataHeaders getDataHeader;
 
 	std::vector<Instrument> Instrument_list;
@@ -168,14 +179,7 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	{
 		ps = PerSecurityWSBindingProxy(host.c_str());
 	}
-	if (soap_ssl_client_context(ps.soap, 
-  		SOAP_SSL_DEFAULT, 
-		cert.c_str(),  
-		pass.c_str(),     
-		NULL,       
-		NULL,           
-		NULL 
-	)) 
+	if (!setCert(ps, cert, pass))
 	{
 		return result;
 	} 
