@@ -75,7 +75,7 @@ string[][] converTalbe(const (char)*** table)
 	{
 		for (ulong j = 0; table[i][j] != null; ++j)
 		{
-			result[i][j] = to!string(fromStringz(table[j][j]));
+			result[i][j] = to!string(fromStringz(table[i][j]));
 		}
 	}
 	releaseTalbe(table);
