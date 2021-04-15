@@ -1,4 +1,5 @@
 bloomberg_dl_soap/build/*
+bloomberg_dl_soap/build_debug/*
 libbloomberg_dl.a
 bloomberg_dl_tools
 .dub/
