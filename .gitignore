@@ -3,3 +3,5 @@ libbloomberg_dl.a
 bloomberg_dl_tools
 .dub/
 .dub/*
+*.gz
+*.csv
