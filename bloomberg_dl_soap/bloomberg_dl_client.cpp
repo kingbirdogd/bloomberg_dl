@@ -148,6 +148,7 @@ std::vector<std::vector<std::string>> soapGetData
 	for (std::size_t i = 0; i < rtrvGtDrResp.instrumentDatas->instrumentData.size(); ++i)
 	{
 		std::vector<std::string> line;
+		line.push_back(rtrvGtDrResp.instrumentDatas->instrumentData[i]->instrument->id);
 		for (std::size_t j = 0; j < rtrvGtDrResp.instrumentDatas->instrumentData[i]->data.size(); ++j)
 		{
 			line.push_back(*(rtrvGtDrResp.instrumentDatas->instrumentData[i]->data[j]->value));
