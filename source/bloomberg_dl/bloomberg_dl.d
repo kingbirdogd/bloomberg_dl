@@ -114,15 +114,15 @@ END-OF-DATA
 END-OF-FILE";
 	version(Windows)
 	{
-		static immutable string new_line = "\r\n";
-		static immutable string start_split = "START-OF-DATA\r\n";
-		static immutable string end_split = "\r\nEND-OF-DATA";
-	}
-	else
-	{
 		static immutable string new_line = "\n";
 		static immutable string start_split = "START-OF-DATA\n";
 		static immutable string end_split = "\nEND-OF-DATA";
+	}
+	else
+	{
+		static immutable string new_line = "\r\n";
+		static immutable string start_split = "START-OF-DATA\r\n";
+		static immutable string end_split = "\r\nEND-OF-DATA";
 	}
 private:
 	static string getFileName(string prefix)
