@@ -8,6 +8,11 @@
 #define sleep(seconds) ::Sleep(seconds * 1000)
 #endif
 
+
+#include <iostream>
+#include <cstdio>
+#include "plugin/logging.h"
+
 const static int DataNotAvailable = 100;
 const static int Success = 0;
 const static int RequestError = 200;
@@ -87,7 +92,19 @@ std::vector<std::vector<std::string>> soapGetData
 	}
 	if (!setCert(ps, cert, pass))
 		return result;
+	FILE* soap_sent = fopen("soap_sent.log", "w");
+	FILE* soap_recv = fopen("soap_recv.log", "w");
+	size_t sent=0, recv=0;
+	soap_register_plugin(ps.soap, logging);
+	soap_logging_stats(ps.soap, &sent, &recv);
+	soap_set_logging_outbound(ps.soap, soap_sent);
+	soap_set_logging_inbound(ps.soap, soap_recv);
 	GetDataHeaders getDataHeader;
+	bool valueTrue = true;
+        getDataHeader.secmaster = &valueTrue;
+        getDataHeader.closingvalues = &valueTrue;
+        getDataHeader.derived = &valueTrue;
+
 
 	std::vector<Instrument> Instrument_list;
 	Instrument_list.resize(ident.size());
@@ -96,6 +113,9 @@ std::vector<std::vector<std::string>> soapGetData
 	{
 		Instrument& inst = Instrument_list[i];
 		inst.id = ident[i];
+		inst.yellowkey = nullptr;
+		inst.type = nullptr;
+		inst.overrides = nullptr;
 		instruments.instrument.push_back(&inst);
 	}
 
@@ -155,6 +175,9 @@ std::vector<std::vector<std::string>> soapGetData
 		}
 		result.push_back(line);
 	}
+	std::cout << "send bytes:" << sent << ", recevie bytes:" << recv << std::endl;
+	fclose(soap_sent);
+	fclose(soap_recv);
 	return result;
 }
 
@@ -205,6 +228,9 @@ std::vector<std::vector<std::string>> soapGetHistorical
 	{
 		Instrument& inst = Instrument_list[i];
 		inst.id = ident[i];
+		inst.yellowkey = NULL;
+		inst.type = NULL;
+		inst.overrides = NULL;
 		instruments.instrument.push_back(&inst);
 	}
 

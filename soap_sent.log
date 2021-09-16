@@ -1,0 +1,90 @@
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 950
+Connection: close
+SOAPAction: "submitGetDataRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:submitGetDataRequest><ns1:headers><ns1:closingvalues>true</ns1:closingvalues><ns1:derived>true</ns1:derived><ns1:secmaster>true</ns1:secmaster></ns1:headers><ns1:fields><ns1:field>PX_LAST_EOD</ns1:field><ns1:field>PX_ASK_EOD</ns1:field><ns1:field>PX_BID_EOD</ns1:field><ns1:field>PX_MID_EOD</ns1:field><ns1:field>YLD_YTM_BID</ns1:field><ns1:field>YLD_YTM_ASK</ns1:field><ns1:field>YLD_YTM_MID</ns1:field></ns1:fields><ns1:instruments><ns1:instrument><ns1:id>US912810ST60 Govt</ns1:id></ns1:instrument></ns1:instruments></ns1:submitGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /dlps HTTP/1.1
+Host: dlws.bloomberg.com
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 510
+Connection: close
+SOAPAction: "retrieveGetDataResponse"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.bloomberg.com/datalicense/dlws/ps/20071001"><SOAP-ENV:Body><ns1:retrieveGetDataRequest><ns1:responseId>1631827154-1291940589</ns1:responseId></ns1:retrieveGetDataRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>

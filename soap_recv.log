@@ -1,0 +1,145 @@
+HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:19:13+0000
+Via: BAS/1.0 basvpl-ob-327
+Content-Length: 626
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 6225cc0d-170e-4750-ba91-4ab5f17041d9
+com.bloomberg.bas-correlationId: c328e96f-37e0-4a93-816d-6c796e0f59a8
+com.bloomberg.bas-messageId: c328e96f-37e0-4a93-816d-6c796e0f59a8
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:submitGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>0</dlws:code><dlws:description>Success</dlws:description></dlws:statusCode><dlws:requestId>6225cc0d-170e-4750-ba91-4ab5f17041d9</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:submitGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:19:24+0000
+Via: BAS/1.0 basvpl-ob-281
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 82452a21-a968-4334-b944-b9649fe7258c
+com.bloomberg.bas-correlationId: 624f7e04-e08e-4025-bc0f-4e3d1912fefa
+com.bloomberg.bas-messageId: 624f7e04-e08e-4025-bc0f-4e3d1912fefa
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>82452a21-a968-4334-b944-b9649fe7258c</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:19:35+0000
+Via: BAS/1.0 basvpl-rr-179
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: a217ce95-4889-4ca9-b7b2-b3556fdb861d
+com.bloomberg.bas-correlationId: 5348a6c1-eb6c-4230-aca7-50c8aea8fb42
+com.bloomberg.bas-messageId: 5348a6c1-eb6c-4230-aca7-50c8aea8fb42
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>a217ce95-4889-4ca9-b7b2-b3556fdb861d</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:19:47+0000
+Via: BAS/1.0 basvpl-rr-874
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: c3633333-885a-41e5-99e1-409ddc36ee0a
+com.bloomberg.bas-correlationId: d6dab3e4-2916-43e8-8d62-12cbd977b60e
+com.bloomberg.bas-messageId: d6dab3e4-2916-43e8-8d62-12cbd977b60e
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>c3633333-885a-41e5-99e1-409ddc36ee0a</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:19:58+0000
+Via: BAS/1.0 basvpl-rr-397
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: e404f434-61fc-429a-9cea-b0aacef8bac2
+com.bloomberg.bas-correlationId: bacf3302-0bcd-4731-bd01-4fcaf5b98452
+com.bloomberg.bas-messageId: bacf3302-0bcd-4731-bd01-4fcaf5b98452
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>e404f434-61fc-429a-9cea-b0aacef8bac2</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:20:09+0000
+Via: BAS/1.0 basvpl-rr-179
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 45a079d9-8b88-4616-99f5-73953ac13f28
+com.bloomberg.bas-correlationId: b0a36501-3e85-4c42-9678-1c7fd5f309d5
+com.bloomberg.bas-messageId: b0a36501-3e85-4c42-9678-1c7fd5f309d5
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>45a079d9-8b88-4616-99f5-73953ac13f28</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:20:20+0000
+Via: BAS/1.0 basvpl-rr-202
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 6b402f4b-c896-4214-a5c9-8373430dbe28
+com.bloomberg.bas-correlationId: 498fa14e-712e-4efb-853d-ec35c9e02e66
+com.bloomberg.bas-messageId: 498fa14e-712e-4efb-853d-ec35c9e02e66
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>6b402f4b-c896-4214-a5c9-8373430dbe28</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:20:31+0000
+Via: BAS/1.0 basvpl-ob-956
+Content-Length: 674
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 39e02146-7e0e-4912-8e0a-3da140ad97e9
+com.bloomberg.bas-correlationId: 178a8fb1-0651-4810-889b-4cf1fb6d5a8f
+com.bloomberg.bas-messageId: 178a8fb1-0651-4810-889b-4cf1fb6d5a8f
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>100</dlws:code><dlws:description>Data is not yet available, please try again later</dlws:description></dlws:statusCode><dlws:requestId>39e02146-7e0e-4912-8e0a-3da140ad97e9</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>HTTP/1.1 200 OK
+Connection: Close
+Date: Thu, 16 Sep 2021 21:20:42+0000
+Via: BAS/1.0 basvpl-rr-202
+Content-Length: 1747
+Content-Type: text/xml; charset=utf-8
+Server: Apache-Coyote/1.1
+bb-request-id: 6825bdb0-ca84-4292-8e3a-ea4815d180f8
+com.bloomberg.bas-correlationId: 8e57eaeb-6729-4b2c-86bb-9583d02ca53b
+com.bloomberg.bas-messageId: 8e57eaeb-6729-4b2c-86bb-9583d02ca53b
+com.bloomberg.bas-recipientTask: machine=0; instance=0;
+com.bloomberg.bas-serviceId: 125322
+com.bloomberg.bas-serviceVersion: 3.1
+Set-Cookie: machineNumber=0; path=/
+X-Powered-By: Servlet 2.4; JBoss-4.3.0.GA_CP04 (build: SVNTag=JBPAPP_4_3_0_GA_CP04 date=200902200048)/JBossWeb-2.0
+
+<?xml version="1.0" encoding="UTF-8" ?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><dlws:retrieveGetDataResponse xmlns='http://services.bloomberg.com/datalicense/dlws/ps/20071001' xmlns:dlws="http://services.bloomberg.com/datalicense/dlws/ps/20071001" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><dlws:statusCode><dlws:code>0</dlws:code><dlws:description>Success</dlws:description></dlws:statusCode><dlws:requestId>6825bdb0-ca84-4292-8e3a-ea4815d180f8</dlws:requestId><dlws:responseId>1631827154-1291940589</dlws:responseId><dlws:headers><dlws:rundate>20210916</dlws:rundate><dlws:programflag>oneshot</dlws:programflag><dlws:closingvalues>true</dlws:closingvalues><dlws:derived>true</dlws:derived><dlws:secmaster>true</dlws:secmaster></dlws:headers><dlws:fields><dlws:field>PX_LAST_EOD</dlws:field><dlws:field>PX_ASK_EOD</dlws:field><dlws:field>PX_BID_EOD</dlws:field><dlws:field>PX_MID_EOD</dlws:field><dlws:field>YLD_YTM_BID</dlws:field><dlws:field>YLD_YTM_ASK</dlws:field><dlws:field>YLD_YTM_MID</dlws:field></dlws:fields><dlws:timestarted>2021-09-16T17:19:30-04:00</dlws:timestarted><dlws:instrumentDatas><dlws:instrumentData><dlws:code>0</dlws:code><dlws:instrument><dlws:id>US912810ST60</dlws:id><dlws:yellowkey>Govt</dlws:yellowkey></dlws:instrument><dlws:data value="93.406250"></dlws:data><dlws:data value="93.406250"></dlws:data><dlws:data value="93.343750"></dlws:data><dlws:data value="93.375000"></dlws:data><dlws:data value="1.816"></dlws:data><dlws:data value="1.811"></dlws:data><dlws:data value="1.813"></dlws:data></dlws:instrumentData></dlws:instrumentDatas><dlws:timefinished>2021-09-16T17:19:47-04:00</dlws:timefinished></dlws:retrieveGetDataResponse></soap:Body></soap:Envelope>
